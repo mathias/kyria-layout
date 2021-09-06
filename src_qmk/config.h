@@ -15,20 +15,17 @@
  */
 
 #pragma once
+#define EE_HANDS
 
-#define TAPPING_TERM 200
-#define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_FORCE_HOLD
-#define PERMISSIVE_HOLD
+//#define TAPPING_TERM 200
+//#define IGNORE_MOD_TAP_INTERRUPT
+//#define TAPPING_FORCE_HOLD
+//#define PERMISSIVE_HOLD
 
-#define COMBO_TERM 50
-#define COMBO_MUST_TAP_PER_COMBO
-#define COMBO_ONLY_FROM_LAYER 0
+//#define COMBO_TERM 50
+//#define COMBO_MUST_TAP_PER_COMBO
+//#define COMBO_ONLY_FROM_LAYER 0
 
-// uncomment the next line to build a firmware that works on linux and windows german qwertz layouts
-#define OSX
-
-enum layers {
-    _MINE = 0,
-    _TABLE
-};
+// If you are using an Elite C rev3 on the slave side, uncomment the lines below:
+#define SPLIT_USB_DETECT
+// #define NO_USB_STARTUP_CHECK
