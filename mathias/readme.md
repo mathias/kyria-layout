@@ -1,13 +1,10 @@
-# Kyria's Default Keymap
+# @mathias Kyria Keymap
 
-![KLE render of the default Kyria keymap with QWERTY as the base layer. Layers are shown in sublegends.](https://i.ibb.co/RQZx2dY/default-kyria2.jpg)
-
-
-The default keymap contains 5 layers which allows it to include all keys found on an ANSI layout TKL keyboard plus media keys.
+This keymap contains ~5~ 4 layers which allows it to include all keys found on an ANSI layout TKL keyboard plus media keys.
 Hardware features of the Kyria such as OLEDs, rotary encoders and underglow are also supported.
 
 The five different layers are the following:
-1. Base layer (QWERTY, Colemak-DH or Dvorak)
+1. Base layer (QWERTY, Colemak-DH ~or Dvorak~)
 2. Navigation layer
 3. Symbols/Numbers layer
 4. Function layer
