@@ -1,4 +1,4 @@
-OLED_ENABLE = no
+OLED_ENABLE = yes
 OLED_DRIVER = SSD1306   # Enables the use of OLED displays
 ENCODER_ENABLE = yes       # Enables the use of one or more encoders
 
@@ -13,7 +13,7 @@ COMMAND_ENABLE = no        # Commands for debug and configuration
 SLEEP_LED_ENABLE = no      # Breathing sleep LED during USB suspend
 BACKLIGHT_ENABLE = no      # Enable background light
 LED_MATRIX_ENABLE = no
-RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_ENABLE = no # yes # enable RGB underflow
 SEQUENCER_ENABLE = no
 TERMINAL_ENABLE = no
 UNICODE_ENABLE = no

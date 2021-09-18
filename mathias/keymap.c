@@ -24,6 +24,37 @@ enum layers {
     _ADJUST,
 };
 
+#ifdef OLED_ENABLE
+void oled_task_user(void) {
+  if (is_keyboard_master()) {
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("Layer: "), false);
+    switch (get_highest_layer(layer_state | default_layer_state)) {
+      case _QWERTY:
+        oled_write_P(PSTR("QWERTY\n"), false);
+        break;
+      case _COLEMAK_DH:
+        oled_write_P(PSTR("Colemak-DH\n"), false);
+        break;
+      case _NAV:
+        oled_write_P(PSTR("Nav\n"), false);
+        break;
+      case _SYM:
+        oled_write_P(PSTR("Sym\n"), false);
+        break;
+      case _FUNCTION:
+        oled_write_P(PSTR("Function\n"), false);
+        break;
+      case _ADJUST:
+        oled_write_P(PSTR("Adjust\n"), false);
+        break;
+      default:
+        oled_write_P(PSTR("Undefined\n"), false);
+    }
+  }
+}
+#endif
+
 
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
