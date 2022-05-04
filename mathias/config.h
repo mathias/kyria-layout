@@ -31,3 +31,6 @@
 #define SPLIT_USB_DETECT
 //#define NO_USB_STARTUP_CHECK
 #define EE_HANDS
+
+// flip encoder directions
+#define ENCODER_DIRECTION_FLIP
