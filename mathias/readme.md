@@ -47,9 +47,6 @@ Base Layer: QWERTY
                        `----------------------------------'  `----------------------------------'
 ```
 
-Aside from variations in the alpha cluster, the rest of the base keys remain the same and are designed to feel familiar.
-
-![Step-by-step animation of the transformation of an ortholinear TKL to a Kyria](https://i.imgur.com/uVDCOek.gif)
 
 <details>
 After making transformations to the classic ANSI US QWERTY TKL 60% to arrive to the layout of the Kyria, as illustrated in the animation above, the result looks like this:
