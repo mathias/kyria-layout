@@ -155,10 +155,8 @@ The left rotary encoder is programmed to control the volume whereas the right en
 The OLEDs display the current layer at the top of the active layers stack, the Kyria logo and lock status (caps lock, num lock, scroll lock).
 
 ### Underglow
-The underglow LEDs should be red.
+The underglow LEDs are controlled by the Adjust layer.
 
-## Going further…
-
-This default keymap can be used as is, unchanged, as a daily driver for your Kyria but you're invited to treat your keymap like a bonsai. At the beginning, it's just like the default keymap but from time to time, you can tweak it a little. Cut a little key here, let another combo grow there. Slowly but surely it will be a unique keymap that will fit you like a glove.
+## Make your own Kyria key map
 
 Check out the #keymap-ideas channel on the official SplitKB Discord server for inspiration.
