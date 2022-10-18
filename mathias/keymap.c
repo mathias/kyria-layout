@@ -25,7 +25,7 @@ enum layers {
 };
 
 #ifdef OLED_ENABLE
-void oled_task_user(void) {
+bool oled_task_user(void) {
   if (is_keyboard_master()) {
     // QMK Logo and version information
     // clang-format off
@@ -69,6 +69,7 @@ void oled_task_user(void) {
     oled_write_P(led_usb_state.caps_lock ? PSTR("CAPLCK ") : PSTR("       "), false);
     oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
 
+    return false;
   } else {
     // clang-format off
     static const char PROGMEM kyria_logo[] = {
@@ -83,6 +84,8 @@ void oled_task_user(void) {
     };
     // clang-format on
     oled_write_raw_P(kyria_logo, sizeof(kyria_logo));
+
+    return false;
   }
 }
 #endif
