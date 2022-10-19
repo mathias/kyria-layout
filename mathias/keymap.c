@@ -22,6 +22,7 @@ enum layers {
     _SYM,
     _FUNCTION,
     _ADJUST,
+    _SYM2,
 };
 
 #ifdef OLED_ENABLE
@@ -95,13 +96,14 @@ bool oled_task_user(void) {
 #define NAV      MO(_NAV)
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
+#define SYM2     MO(_SYM2)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_ENT  MT(MOD_LALT, KC_ENT)
 
-// Note: LAlt/Enter (ALT_ENT) is not the same thing as the keyboard shortcut Alt+Enter.
+// Note: LAlt/Enter (ALT_ENT) is not the same thing as the keyboard shortcut Alt+Enter.
 // The notation `mod/tap` denotes a key that activates the modifier `mod` when held down, and
 // produces the key `tap` when tapped (i.e. pressed and released).
 
@@ -116,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------|
    * |CTL/ES|  Z   |  X   |  C   |  D   |  V   |  [   | NAV  |  |FKEYS |  ]   |  K   |  H   | , <  | . >  | / ?  |ALT/EN|
    * `------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------'
-   *                      |ADJUST|LGUI ◆|LSFT ⇧| BSPC |LCTL ⎈|  |ALT/EN| SPC  | SYM  |RGUI ◆| APP  |
+   *                      |ADJUST|LGUI ◆|LSFT ⇧| BSPC |LCTL ⎈|  |ALT/EN| SPC  | SYM  |RGUI ◆| SYM2 |
    *                      |      |      |      |      |      |  |      |      |      |      |      |
    *                      `----------------------------------'  `----------------------------------'
    */
@@ -124,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, KC_BSPC,
       KC_LSFT , KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , KC_QUOT,
       CTL_ESC, KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V ,KC_LBRC, NAV,      FKEYS  , KC_RBRC,  KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, ALT_ENT,
-      ADJUST, KC_LGUI, KC_LSFT, KC_BSPC,KC_LCTL,   ALT_ENT, KC_SPC ,  SYM  , KC_RGUI, KC_APP
+      ADJUST, KC_LGUI, KC_LSFT, KC_BSPC,KC_LCTL,   ALT_ENT, KC_SPC ,  SYM  , KC_RGUI, SYM2
       ),
 
   /*
@@ -171,6 +173,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /*
    * Sym Layer: Numbers and symbols
+  //  *
+  //  * ,-------------------------------------------.                              ,-------------------------------------------.
+  //  * |        |  !   |  @   |  {   |   }  |  |   |                              |      |  7   |  8   |  9   |  *   |        |
+  //  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+  //  * |        | Tab  |  $   |  (   |   )  |  '"  |                              | - _  |  4   |  5   |  6   |  \|  |        |
+  //  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+  //  * |        |  %   |  ^   |  [   |   ]  |  ~   |      |      |  |      |      |  0   |  1   |  2   |  3   |  =+  |        |
+  //  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+  //  *                        |      |      |LSHFT |      |      |  |      |      |      |      |      |
+  //  *                        |      |      |      |      |      |  |      |      |      |      |      |
+  //  *                        `----------------------------------'  `----------------------------------'
+  //  */
+       [_SYM] = LAYOUT(
+         _______, KC_EXCLAIM, KC_AT, KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_7, KC_8, KC_9, KC_KP_ASTERISK, _______,
+         _______, KC_TAB, KC_DOLLAR, KC_LPRN, KC_RPRN, KC_QUOT,                                    KC_MINS, KC_4, KC_5, KC_6, KC_BSLS, _______,
+         _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_0, KC_1, KC_2, KC_3, KC_EQUAL, _______,
+                                    _______, _______, KC_LSFT, _______, _______, _______, _______, _______, _______, _______
+       ),
+
+  /*
+   * Old sym Layer (SYM2): Numbers and symbols
    * ,-----------------------------------------.                              ,-----------------------------------------.
    * |  `   |  1   |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |  =   |
    * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
@@ -182,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                      |      |      |      |      |      |  |      |      |      |      |      |
    *                      `----------------------------------'  `----------------------------------'
    */
-  [_SYM] = LAYOUT(
+  [_SYM2] = LAYOUT(
       KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , KC_EQL ,
       KC_TILD , KC_EXLM,  KC_AT , KC_HASH,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
       KC_PIPE , KC_BSLS, KC_COLN, KC_SCLN, KC_MINS, KC_LBRC, KC_LCBR, _______, _______, KC_RCBR, KC_RBRC, KC_UNDS, KC_COMM,  KC_DOT, KC_SLSH, KC_QUES,
