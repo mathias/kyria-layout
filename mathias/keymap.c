@@ -22,7 +22,6 @@ enum layers {
     _SYM,
     _FUNCTION,
     _ADJUST,
-    _SYM2,
 };
 
 #ifdef OLED_ENABLE
@@ -59,9 +58,6 @@ bool oled_task_user(void) {
         break;
       case _ADJUST:
         oled_write_P(PSTR("Adjust\n"), false);
-        break;
-      case _SYM2:
-        oled_write_P(PSTR("Symbol 2\n"), false);
         break;
       default:
         oled_write_P(PSTR("Undefined\n"), false);
@@ -187,26 +183,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          _______, KC_PERC, KC_CIRC, KC_GRAVE, KC_LBRC, KC_RBRC, _______, _______, _______, _______, KC_0, KC_1, KC_2, KC_3, KC_EQUAL, _______,
                                     _______, _______, KC_LSFT, _______, _______, _______, _______, _______, _______, _______
        ),
-
-  /*
-   * Old sym Layer (SYM2): Numbers and symbols
-   * ,-----------------------------------------.                              ,-----------------------------------------.
-   * |  `   |  1   |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |  =   |
-   * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
-   * |  ~   |  !   |  @   |  #   |  $   |  %   |                              |  ^   |  &   |  *   |  (   |  )   |  +   |
-   * |------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------|
-   * |  |   | \ |  |  :   | : ;  | - _  |  [   |  {   |      |  |      |  }   |  ]   |  _   | , <  | . >  | / ?  | ? !  |
-   * `------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------'
-   *                      |      |      |      |      |      |  |      |      |      |      |      |
-   *                      |      |      |      |      |      |  |      |      |      |      |      |
-   *                      `----------------------------------'  `----------------------------------'
-   */
-  [_SYM2] = LAYOUT(
-      KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , KC_EQL ,
-      KC_TILD , KC_EXLM,  KC_AT , KC_HASH,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
-      KC_PIPE , KC_BSLS, KC_COLN, KC_SCLN, KC_MINS, KC_LBRC, KC_LCBR, _______, _______, KC_RCBR, KC_RBRC, KC_UNDS, KC_COMM,  KC_DOT, KC_SLSH, KC_QUES,
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-      ),
 
   /*
    * Function Layer: Function keys
