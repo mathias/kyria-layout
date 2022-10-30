@@ -108,20 +108,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*
    * Base Layer: Colemak DH
    * ,-----------------------------------------.                              ,-----------------------------------------.
-   * | TAB  |  Q   |  W   |  F   |  P   |  B   |                              |  J   |  L   |  U   |  Y   | : ;  | BSPC |
+   * |      |  Q   |  W   |  F   |  P   |  B   |                              |  J   |  L   |  U   |  Y   | : ;  |      |
    * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
-   * |LSFT ⇧|  A   |  R   |  S   |  T   |  G   |                              |  M   |  N   |  E   |  I   |  O   | ' "  |
+   * |      |  A   |  R   |  S   |  T   |  G   |                              |  M   |  N   |  E   |  I   |  O   |      |
    * |------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------|
-   * |CTL/ES|  Z   |  X   |  C   |  D   |  V   |  [   | NAV  |  |FKEYS |  ]   |  K   |  H   | , <  | . >  | / ?  |ALT/EN|
+   * |      |  Z   |  X   |  C   |  D   |  V   |  [   | NAV  |  |FKEYS |  ]   |  K   |  H   | , <  | . >  | / ?  |      |
    * `------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------'
    *                      |ADJUST|LGUI ◆|LSFT ⇧| BSPC |LCTL ⎈|  |ALT/EN| SPC  | SYM  |RGUI ◆| SYM2 |
    *                      |      |      |      |      |      |  |      |      |      |      |      |
    *                      `----------------------------------'  `----------------------------------'
    */
   [_COLEMAK_DH] = LAYOUT(
-      KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, KC_BSPC,
-      KC_LSFT , KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , KC_QUOT,
-      CTL_ESC, KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V ,KC_LBRC, NAV,      FKEYS  , KC_RBRC,  KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, ALT_ENT,
+      _______, KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, _______,
+      _______, KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , _______,
+      _______, KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V ,KC_LBRC, NAV,      FKEYS  , KC_RBRC,  KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, _______,
       ADJUST, KC_LGUI, KC_LSFT, KC_BSPC,KC_LCTL,   ALT_ENT, KC_SPC ,  SYM  , KC_RGUI, SYM2
       ),
 
@@ -129,20 +129,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * Base Layer: QWERTY
    *
    * ,-----------------------------------------.                              ,-----------------------------------------.
-   * | TAB  |  Q   |  W   |  E   |  R   |  T   |                              |  Y   |  U   |  I   |  O   |  P   | BSPC |
+   * |      |  Q   |  W   |  E   |  R   |  T   |                              |  Y   |  U   |  I   |  O   |  P   |      |
    * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
-   * |LSFT ⇧|  A   |  S   |  D   |  F   |  G   |                              |  H   |  J   |  K   |  L   | : ;  | ' "  |
+   * |      |  A   |  S   |  D   |  F   |  G   |                              |  H   |  J   |  K   |  L   | : ;  |      |
    * |------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------|
-   * |CTL/ES|  Z   |  X   |  C   |  V   |  B   |  [   | NAV  |  |FKEYS |  ]   |  N   |  M   | , <  | . >  | / ?  |ALT/EN|
+   * |      |  Z   |  X   |  C   |  V   |  B   |  [   | NAV  |  |FKEYS |  ]   |  N   |  M   | , <  | . >  | / ?  |      |
    * `------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------'
    *                      |ADJUST|LGUI ◆|LSFT ⇧| BSPC |LCTL ⎈|  |ALT/EN| SPC  | SYM  |RGUI ◆| APP  |
    *                      |      |      |      |      |      |  |      |      |      |      |      |
    *                      `----------------------------------'  `----------------------------------'
    */
   [_QWERTY] = LAYOUT(
-      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_BSPC,
-      KC_LSFT , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,   KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
-      CTL_ESC, KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, NAV,     FKEYS  , KC_RBRC,  KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, ALT_ENT,
+      _______, KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , _______,
+      _______, KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,   KC_J ,  KC_K ,   KC_L ,KC_SCLN, _______,
+      _______, KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, NAV,     FKEYS  , KC_RBRC,  KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, _______,
       ADJUST, KC_LGUI, KC_LSFT, KC_BSPC,KC_LCTL,    ALT_ENT, KC_SPC ,  SYM , KC_RGUI, KC_APP
       ),
 
