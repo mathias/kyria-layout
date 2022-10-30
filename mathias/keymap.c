@@ -88,12 +88,12 @@ bool oled_task_user(void) {
 #define NAV      MO(_NAV)
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
-#define SYM2     MO(_SYM2)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_ENT  MT(MOD_LALT, KC_ENT)
+#define SPC_NAV  MT(NAV, KC_SPSC)
 
 // Note: LAlt/Enter (ALT_ENT) is not the same thing as the keyboard shortcut Alt+Enter.
 // The notation `mod/tap` denotes a key that activates the modifier `mod` when held down, and
@@ -108,17 +108,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
    * |      |  A   |  R   |  S   |  T   |  G   |                              |  M   |  N   |  E   |  I   |  O   |      |
    * |------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------|
-   * |      |  Z   |  X   |  C   |  D   |  V   |  [   | NAV  |  |FKEYS |  ]   |  K   |  H   | , <  | . >  | / ?  |      |
+   * |      |  Z   |  X   |  C   |  D   |  V   |  [   |      |  |FKEYS |  ]   |  K   |  H   | , <  | . >  | / ?  |      |
    * `------+------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------+------'
-   *                      |ADJUST|LGUI ◆|LSFT ⇧| BSPC |LCTL ⎈|  |ALT/EN| SPC  | SYM  |RGUI ◆| SYM2 |
-   *                      |      |      |      |      |      |  |      |      |      |      |      |
+   *                      |ADJUST|LGUI ◆|LSFT ⇧| BSPC |LCTL ⎈|  |ALT/EN|NAV/SPC| SYM  |RGUI ◆| SYM2 |
+   *                      |      |      |      |      |      |  |      |       |      |      |      |
    *                      `----------------------------------'  `----------------------------------'
    */
   [_COLEMAK_DH] = LAYOUT(
       _______, KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, _______,
       _______, KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , _______,
       _______, KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V ,KC_LBRC, NAV,      FKEYS  , KC_RBRC,  KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, _______,
-      ADJUST, KC_LGUI, KC_LSFT, KC_BSPC,KC_LCTL,   ALT_ENT, KC_SPC ,  SYM  , KC_RGUI, SYM2
+      ADJUST, KC_LGUI, KC_LSFT, KC_BSPC,KC_LCTL,   ALT_ENT, SPC_NAV,  SYM  , KC_RGUI, SYM2
       ),
 
   /*
